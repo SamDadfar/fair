@@ -1,13 +1,17 @@
-package com;
+package com.amusement;
+
+import com.ListMenu;
 
 public class MirrorMaze extends AmusementRide{
 
 	private static int counter=0;
-	public final static double price=2.75;
+	public final static double price=ListMenu.MirrorMaze.getPrice();
 	
 	public MirrorMaze() {
 		this.name="MirrorMaze";
 		counter++;
+		setTicketCode();
+		AmusementRide.totalCounter++;
 	}
 	public static int getCounter() {
 		return counter;
@@ -18,15 +22,16 @@ public class MirrorMaze extends AmusementRide{
 		
 	}
 
-	@Override
-	public void run() {
-		System.out.println("running a MirrorMaze");
-		
-	}
+	
 	
 	@Override 
 	public String toString() {
 		return "name of object:"+this.name+"\tPrice of object:"+MirrorMaze.price;
 	}
+	
+	private void setTicketCode() {
+		ticketCode+=name+counter;
+	}
+	
 
 }

@@ -1,12 +1,16 @@
-	package com;
+	package com.amusement;
+
+import com.ListMenu;
 
 public class HauntedHouse extends AmusementRide{
 	private static int counter=0;
-	public final static double price=3.20;
+	public final static double price=ListMenu.HauntedHouse.getPrice();
 	
 	public HauntedHouse() {
 		this.name="HauntedHouse";
 		counter++;
+		setTicketCode();
+		AmusementRide.totalCounter++;
 	}
 	public static int getCounter() {
 		return counter;
@@ -18,13 +22,15 @@ public class HauntedHouse extends AmusementRide{
 		
 	}
 
-	@Override
-	public void run() {
-		System.out.println("running a HauntedHouse");
-	}
+	
 	@Override 
 	public String toString() {
 		return "name of object:"+this.name+"\tPrice of object:"+HauntedHouse.price;
 	}
+	
+	private void setTicketCode() {
+		ticketCode+=name+counter;
+	}
+	
 
 }
